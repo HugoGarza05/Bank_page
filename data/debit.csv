@@ -1,6 +1,132 @@
-Date,Description,Status,Amount
-2025-08-01,Opening Balance,Posted,0.0
-2025-08-02,Paycheck Deposit,Posted,50.0
-2025-08-03,Groceries,Posted,-20.0
-2025-08-04,Coffee,Posted,-3.5
-2025-08-05,Transfer to Savings,Posted,-24.2
+,Date,Description,Status,Amount
+0,01/02/2025,PlayStation Store — Purchase — McAllen TX,Posted,-22.8
+1,01/06/2025,PlayStation Store — Purchase — Harlingen TX,Posted,-111.28
+2,01/06/2025,Advance Auto Parts — Purchase — Chicago IL,Posted,-26.03
+3,01/07/2025,Nintendo — Purchase — Mission TX,Posted,-27.54
+4,01/15/2025,Walgreens — Purchase — Brownsville TX,Posted,-83.07
+5,01/15/2025,Costco — Purchase — Brownsville TX,Posted,-31.04
+6,01/18/2025,Hulu — Purchase — Brownsville TX,Posted,-91.25
+7,01/20/2025,CVS Pharmacy — Purchase — Brownsville TX,Posted,-91.72
+8,01/21/2025,Panera Bread — Purchase — Harlingen TX,Posted,-76.21
+9,01/21/2025,City Parking — Purchase — Mission TX,Posted,-3.57
+10,01/25/2025,Chipotle — Purchase — Chicago IL,Posted,-2.83
+11,01/26/2025,Walgreens — Payment — Chicago IL,Posted,22.84
+12,01/28/2025,Ventra — Purchase — McAllen TX,Posted,-29.34
+13,02/09/2025,Dropbox — Purchase — Pharr TX,Posted,-10.35
+14,02/14/2025,Metra/CTA — Purchase — Mission TX,Posted,-22.31
+15,02/15/2025,Netflix — Purchase — McAllen TX,Posted,-23.79
+16,02/17/2025,Google — Purchase — McAllen TX,Posted,-18.75
+17,02/18/2025,Subway — Purchase — McAllen TX,Posted,-52.14
+18,02/18/2025,Panera Bread — Purchase — Edinburg TX,Posted,-42.61
+19,02/18/2025,Shell Gas — Purchase — Mission TX,Posted,-13.03
+20,02/19/2025,Google — Purchase — Mission TX,Posted,-17.69
+21,02/22/2025,PlayStation Store — Purchase — Pharr TX,Posted,-18.8
+22,02/25/2025,Apple — Purchase — McAllen TX,Posted,-151.32
+23,02/27/2025,Nike — Purchase — Pharr TX,Posted,-9.89
+24,02/27/2025,Jiffy Lube — Purchase — McAllen TX,Posted,-141.2
+25,03/02/2025,Target — Purchase — Brownsville TX,Posted,-29.46
+26,03/04/2025,Uber — Purchase — Pharr TX,Posted,-19.93
+27,03/07/2025,Amazon — Purchase — McAllen TX,Posted,-13.87
+28,03/12/2025,Domino's — Purchase — Chicago IL,Posted,-15.51
+29,03/13/2025,Steam — Purchase — Chicago IL,Posted,-156.01
+30,03/23/2025,Advance Auto Parts — Purchase — McAllen TX,Posted,-14.1
+31,03/24/2025,Apple App Store — Purchase — Chicago IL,Posted,-54.31
+32,03/24/2025,Uber — Purchase — Mission TX,Posted,-22.82
+33,03/25/2025,GitHub — Purchase — Pharr TX,Posted,-16.43
+34,03/29/2025,Metra/CTA — Purchase — Harlingen TX,Posted,-137.74
+35,04/01/2025,IKEA — Purchase — Mission TX,Posted,-18.14
+36,04/09/2025,Lyft — Purchase — Edinburg TX,Posted,-3.93
+37,04/09/2025,Kroger — Purchase — Chicago IL,Posted,-73.69
+38,04/10/2025,Parking Meter — Purchase — Harlingen TX,Posted,-8.18
+39,04/12/2025,Walgreens — Purchase — Brownsville TX,Posted,-24.55
+40,04/15/2025,Amazon — Purchase — Brownsville TX,Posted,-29.61
+41,04/15/2025,GitHub — Purchase — Harlingen TX,Posted,-33.69
+42,04/25/2025,Metra/CTA — Purchase — Chicago IL,Posted,-49.99
+43,04/27/2025,Domino's — Purchase — Brownsville TX,Posted,-5.36
+44,04/29/2025,Adidas — Purchase — Chicago IL,Posted,-9.1
+45,05/06/2025,Planet Fitness — Purchase — Edinburg TX,Posted,-53.87
+46,05/08/2025,Lyft — Purchase — Mission TX,Posted,-2.41
+47,05/12/2025,Starbucks — Purchase — Brownsville TX,Posted,-16.26
+48,05/12/2025,Panda Express — Purchase — Chicago IL,Posted,-61.84
+49,05/12/2025,Lyft — Purchase — Brownsville TX,Posted,-155.94
+50,05/14/2025,Whole Foods — Purchase — Pharr TX,Posted,-31.22
+51,05/27/2025,Ventra — Purchase — Brownsville TX,Posted,-16.97
+52,05/30/2025,Jiffy Lube — Purchase — Brownsville TX,Posted,-18.06
+53,06/01/2025,Google — Purchase — Edinburg TX,Posted,-17.63
+54,06/02/2025,Apple — Purchase — Pharr TX,Posted,-13.58
+55,06/03/2025,Starbucks — Purchase — McAllen TX,Posted,-17.97
+56,06/04/2025,Steam — Purchase — Edinburg TX,Posted,-4.34
+57,06/06/2025,Google — Purchase — Pharr TX,Posted,-7.07
+58,06/07/2025,Panda Express — Purchase — Chicago IL,Posted,-11.54
+59,06/17/2025,Apple — Purchase — Edinburg TX,Posted,-8.54
+60,06/21/2025,CVS Pharmacy — Refund — McAllen TX,Posted,15.72
+61,06/21/2025,Aldi — Purchase — Harlingen TX,Posted,-19.15
+62,06/27/2025,AutoZone — Purchase — Pharr TX,Posted,-94.16
+63,06/29/2025,Starbucks — Rebate — Pharr TX,Posted,14.9
+64,07/02/2025,Dropbox — Purchase — Edinburg TX,Posted,-8.06
+65,07/02/2025,Ventra — Payment — Edinburg TX,Posted,31.27
+66,07/02/2025,Home Depot — Purchase — Pharr TX,Posted,-156.01
+67,07/10/2025,Lowe's — Purchase — Chicago IL,Posted,-15.85
+68,07/17/2025,Subway — Purchase — Chicago IL,Posted,-22.48
+69,07/18/2025,Adidas — Purchase — Brownsville TX,Posted,-7.52
+70,07/22/2025,Ventra — Rebate — Harlingen TX,Posted,99.6
+71,07/24/2025,Nintendo — Purchase — Pharr TX,Posted,-17.55
+72,07/28/2025,PlayStation Store — Purchase — Edinburg TX,Posted,-6.33
+73,07/30/2025,Hulu — Purchase — McAllen TX,Posted,-62.98
+74,08/01/2024,CVS Pharmacy — Purchase — Edinburg TX,Posted,-151.02
+75,08/01/2024,IKEA — Purchase — Edinburg TX,Posted,-10.84
+76,08/04/2025,Ventra — Purchase — Brownsville TX,Posted,-19.87
+77,08/10/2025,Target — Purchase — Edinburg TX,Posted,-24.01
+78,08/13/2024,Planet Fitness — Rebate — Harlingen TX,Posted,123.9
+79,08/16/2025,Whole Foods — Rebate — Chicago IL,Posted,3.85
+80,08/16/2025,Best Buy — Purchase — Mission TX,Posted,-17.07
+81,08/18/2025,Nike — Purchase — Mission TX,Posted,-2.44
+82,08/20/2024,CVS Pharmacy — Purchase — Pharr TX,Posted,-14.1
+83,08/22/2024,Whole Foods — Purchase — McAllen TX,Posted,-9.56
+84,08/28/2025,Uber — Purchase — Harlingen TX,Posted,-20.54
+85,08/28/2025,Ventra — Purchase — Brownsville TX,Posted,-24.7
+86,08/28/2025,Subway — Purchase — McAllen TX,Posted,-9.73
+87,08/30/2025,Panera Bread — Purchase — Pharr TX,Posted,-33.04
+88,08/30/2025,Hulu — Purchase — Harlingen TX,Posted,-31.45
+89,08/31/2024,Amazon — Purchase — Pharr TX,Posted,-20.57
+90,08/31/2025,Aldi — Payment — Chicago IL,Posted,9.25
+91,09/06/2024,Parking Meter — Purchase — Mission TX,Posted,-4.1
+92,09/08/2024,Costco — Purchase — Chicago IL,Posted,-5.96
+93,09/11/2024,Steam — Purchase — Pharr TX,Posted,-144.31
+94,09/18/2024,Nintendo — Purchase — Brownsville TX,Posted,-13.56
+95,09/23/2024,Walgreens — Purchase — Brownsville TX,Posted,-23.75
+96,09/26/2024,Aldi — Purchase — Chicago IL,Posted,-28.35
+97,09/27/2024,Whole Foods — Purchase — McAllen TX,Posted,-8.37
+98,10/03/2024,Taco Bell — Purchase — Brownsville TX,Posted,-30.82
+99,10/05/2024,Panda Express — Rebate — Harlingen TX,Posted,54.41
+100,10/10/2024,Lyft — Purchase — Mission TX,Posted,-33.42
+101,10/10/2024,LA Fitness — Purchase — Pharr TX,Posted,-13.78
+102,10/11/2024,Ventra — Purchase — Harlingen TX,Posted,-26.18
+103,10/13/2024,Google — Purchase — Edinburg TX,Posted,-23.87
+104,10/19/2024,Amazon — Purchase — Harlingen TX,Posted,-4.9
+105,10/19/2024,GitHub — Refund — Mission TX,Posted,89.23
+106,10/22/2024,Subway — Purchase — Chicago IL,Posted,-10.78
+107,10/24/2024,Advance Auto Parts — Purchase — Mission TX,Posted,-27.12
+108,10/25/2024,DoorDash — Purchase — Brownsville TX,Posted,-8.26
+109,10/30/2024,Nintendo — Purchase — Chicago IL,Posted,-11.13
+110,10/31/2024,Taco Bell — Purchase — Brownsville TX,Posted,-24.35
+111,11/01/2024,Subway — Purchase — McAllen TX,Posted,-4.38
+112,11/02/2024,Subway — Purchase — Chicago IL,Posted,-18.86
+113,11/02/2024,DoorDash — Payment — Mission TX,Posted,8.46
+114,11/06/2024,LA Fitness — Purchase — Pharr TX,Posted,-22.19
+115,11/07/2024,Starbucks — Purchase — McAllen TX,Posted,-17.09
+116,11/10/2024,Panera Bread — Purchase — McAllen TX,Posted,-2.13
+117,11/16/2024,Metra/CTA — Refund — Pharr TX,Posted,3.14
+118,11/17/2024,Google — Purchase — Brownsville TX,Posted,-139.62
+119,11/21/2024,Walmart — Purchase — Pharr TX,Posted,-146.49
+120,11/24/2024,Kroger — Purchase — Brownsville TX,Posted,-12.07
+121,11/27/2024,Nintendo — Purchase — Edinburg TX,Posted,-23.89
+122,12/11/2024,PlayStation Store — Purchase — Edinburg TX,Posted,-11.48
+123,12/21/2024,Domino's — Purchase — Chicago IL,Posted,-53.73
+124,12/22/2024,DoorDash — Rebate — Brownsville TX,Posted,10.32
+125,12/24/2024,Adidas — Purchase — Chicago IL,Posted,-3.6
+126,12/27/2024,CVS Pharmacy — Purchase — McAllen TX,Posted,-5.18
+127,12/28/2024,Kroger — Purchase — Chicago IL,Posted,-20.12
+128,12/30/2024,Kroger — Purchase — Pharr TX,Posted,-28.41
+129,12/31/2024,AutoZone — Purchase — Chicago IL,Posted,-71.23
+130,09/03/2025,Account Balance Adjustment — Auto-Balance — Chicago IL,Posted,3629.84
