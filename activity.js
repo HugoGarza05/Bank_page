@@ -17,6 +17,7 @@
     const table = $("#activityTable");
     const tbody = $("#activityTable tbody");
     const trendCanvas = $("#trendChart");
+    const balanceEl = $("#accountBalance");
 
     // Optional toolbar buttons you may already have
     const importBtn = $("#importBtn");
@@ -229,6 +230,12 @@
 
       // trend
       buildTrendChart(rows);
+
+      // account balance display
+      if (balanceEl) {
+        const total = rows.reduce((sum, r) => sum + (Number(r.amount) || 0), 0);
+        balanceEl.textContent = fmtUSD(total);
+      }
     }
 
     // ---- CSV helpers ----
