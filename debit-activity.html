@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
+    .row{display:grid;gap:18px}
+    @media(min-width:900px){.row{grid-template-columns:1fr 1fr}}
+    .row-card{background:#fff;border:1px solid #e5ebf7;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
     .trend-card{background:linear-gradient(#e9edf4,#ffffff);border:1px solid #dfe6f3;border-radius:16px;padding:16px}
   </style>
 </head>
@@ -37,6 +40,21 @@
 
   <main class="container">
     <h1 class="hero-greet">Cashback Debit — Activity</h1>
+
+    <section class="row" aria-label="Account summary">
+      <div class="row-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem">
+          <div>
+            <span class="pill">Acct •••• 5195</span>
+            <h2 style="margin:10px 0 0">Cashback Debit</h2>
+          </div>
+          <div style="text-align:right">
+            <div class="label">Available Balance</div>
+            <div id="accountBalance" style="font-weight:900;font-size:28px">$0.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div id="chart-wrap" class="carousel">
       <div class="pills-row"><span class="mini-pill">This Month</span></div>
