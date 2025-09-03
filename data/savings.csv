@@ -1,0 +1,10 @@
+Date,Description,Status,Amount
+2025-05-01,Opening Balance,Posted,800.0
+2025-05-10,Deposit,Posted,5000.0
+2025-05-31,Interest Credit,Posted,12.34
+2025-06-05,Withdrawal,Posted,-3000.0
+2025-06-05,Transfer to Checking,Posted,-800.0
+2025-06-15,Interest Bonus,Posted,2000.0
+2025-06-20,Transfer Out,Posted,-2000.0
+2025-06-30,Interest Credit,Posted,64.5
+2025-07-31,Interest Credit,Posted,65.58

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Credit Card — Activity</title>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Chart.js for spending trend -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <style>
+    .row{display:grid;gap:18px}
+    @media(min-width:900px){.row{grid-template-columns:1fr 1fr}}
+    .row-card{background:#fff;border:1px solid #e5ebf7;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .trend-card{background:linear-gradient(#e9edf4,#ffffff);border:1px solid #dfe6f3;border-radius:16px;padding:16px}
+    .balance-edit{display:flex;align-items:center;gap:.5rem;justify-content:flex-end}
+    .balance-input{
+      width:150px; max-width:45vw;
+      font: 900 28px/1 var(--font,ui-sans-serif,system-ui);
+      color:#0e213e; text-align:right;
+      border:1px solid #dfe6f3; border-radius:10px; padding:.25rem .5rem;
+      background:#f7f9fd;
+    }
+    .balance-input::-webkit-outer-spin-button,
+    .balance-input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0 }
+    .balance-help{font-size:12px;color:#5a6d89;margin-top:4px;text-align:right}
+  </style>
+</head>
+
+<!-- data-limit is your credit limit (editable here, not from CSV) -->
+<body data-account="credit" data-csv="data/credit.csv" data-limit="8900" data-initial-balance="637.01">
+  <!-- Fixed topbar -->
+  <header class="topbar" role="banner">
+    <div class="accent-line"></div>
+    <div class="topbar-inner">
+      <button id="menuBtn" class="icon-btn" aria-label="Open menu">☰</button>
+      <h1 class="topbar-title">Activity &amp; Statements</h1>
+      <a href="#" class="logout">Log Out</a>
+    </div>
+  </header>
+
+  <!-- Slide-in sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Site">
+    <div class="sidebar-header">
+      <strong>Menu</strong>
+      <button id="closeSidebar" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+
+    <div class="section-title">Activity</div>
+    <a href="index.html">Account Center Home</a>
+    <a href="credit-activity.html">Activity &amp; Statements</a>
+    <a href="#">Search Transactions</a>
+    <a href="#">Spend Analyzer</a>
+    <a href="#">Year-End Summary</a>
+    <a href="fico.html">FICO® Credit Scorecard</a>
+
+    <div class="section-title">Payments</div>
+    <a href="#">Make a Payment</a>
+    <a href="#">Payment History</a>
+    <a href="#">Pending Payments</a>
+    <a href="#">Automatic Payments</a>
+    <a href="#">Change Payment Due Date</a>
+    <a href="#">Manage Bank Accounts</a>
+
+    <div class="section-title">Rewards</div>
+    <a href="#">Cash Back Summary</a>
+    <a href="#">5% Cashback Bonus® Calendar</a>
+    <a href="#">Redeem Cashback Bonus</a>
+    <a href="#">Refer a Friend</a>
+
+    <div class="section-title">Card Services</div>
+    <a href="#">Manage Cards</a>
+    <a href="#">Add or Replace a Card</a>
+    <a href="#">Manage Authorized Users</a>
+    <a href="#">Cash Access</a>
+    <a href="#">Credit Line Increase</a>
+    <a href="#">Balance Transfers</a>
+
+    <div class="section-title">Security</div>
+    <a href="#">Freeze Account</a>
+    <a href="#">Report Lost or Stolen Card</a>
+    <a href="#">Disputes</a>
+    <a href="#">SSN, Inquiry &amp; New Account Alerts</a>
+    <a href="#">Register Travel</a>
+    <a href="#">Identity Theft Protection</a>
+    <a href="#">Manage Third-Party Access</a>
+
+    <div style="padding:16px">
+      <button id="closeSidebarBottom" class="btn close">Close</button>
+    </div>
+  </nav>
+  <div id="sidebarBackdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <main class="container">
+    <!-- Top summary + chart -->
+    <section class="row" aria-label="Account summary">
+      <div class="row-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem">
+          <div>
+            <span class="pill">Acct •••• 3467</span>
+            <h2 style="margin:10px 0 0">Credit Card</h2>
+          </div>
+
+          <!-- EDITABLE current balance (not from CSV) -->
+          <div style="min-width:260px">
+            <div class="label" style="text-align:right">Current Balance</div>
+            <div class="balance-edit">
+              <span style="font-weight:900;font-size:28px">$</span>
+              <input id="balanceInput" class="balance-input" type="number" step="0.01" inputmode="decimal" aria-label="Current balance amount">
+            </div>
+            <div class="balance-help">Tip: type a value and press Enter</div>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--divider);margin:14px 0"/>
+
+        <div class="row" style="--gap:10px">
+          <div>
+            <div class="label">Statement Balance</div>
+            <div id="ccStatementBalance">$1367.07</div>
+          </div>
+          <div>
+            <div class="label">Pending</div>
+            <div id="ccPending">$0.00</div>
+          </div>
+          <div>
+            <div class="label">Available Credit</div>
+            <div id="ccAvailCredit">$0.00</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <div class="label">Utilization</div>
+          <div class="util-bar">
+            <div class="util-orange" id="utilOrange" style="width:0%"></div>
+            <div class="util-blue"   id="utilBlue"   style="width:0%"></div>
+          </div>
+          <div style="margin-top:6px;color:#5a6d89;font-size:12px">
+            Limit: <span id="ccLimit">$0.00</span> &nbsp;•&nbsp; Left: <span id="ccLeft">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-card">
+        <span class="pill">This Month</span>
+        <h3 class="small-title">Spending trend</h3>
+        <div class="trend-card">
+          <canvas id="trendChart" height="120"></canvas>
+        </div>
+        <div class="dots" aria-hidden="true">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <div class="toolbar" role="group" aria-label="Activity actions">
+      <button id="importBtn" class="btn">Import CSV</button>
+      <button class="btn" onclick="window.print()">Print</button>
+      <input type="file" id="csvFile" accept=".csv" hidden />
+      <button class="btn" id="addTxnBtn">Add Transaction</button>
+        <form id="inlineEditor" style="display:none;gap:8px;align-items:center;">
+            <input type="hidden" id="eIndex" value="-1" />
+            <input type="date" id="eDate" required />
+            <select id="eStatus">
+            <option>Posted</option>
+            <option>Processing</option>
+            <option>Pending</option>
+            </select>
+            <input type="text" id="eDesc" placeholder="Description" required />
+            <input type="number" step="0.01" id="eAmount" placeholder="-12.34, +34.10" required />
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn ghost" id="cancelEditBtn">Cancel</button>
+        </form>
+
+      <div style="margin-left:auto"></div>
+    </div>
+
+    <!-- Transactions table -->
+    <section class="table-wrap" aria-label="Transactions">
+      <table id="activityTable" aria-describedby="tcaption">
+        <caption id="tcaption" class="sr-only">Recent transactions</caption>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th style="text-align:right">Amount</th>
+          </tr>
+        </thead>
+        <tbody><!-- rows injected by JS --></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="activity.js"></script>
+  <script>
+    /* ========== Sidebar open/close ========== */
+    const body = document.body;
+    const openBtn = document.getElementById('menuBtn');
+    const closeBtns = [document.getElementById('closeSidebar'), document.getElementById('closeSidebarBottom')];
+    const backdrop = document.getElementById('sidebarBackdrop');
+    const sidebar = document.getElementById('sidebar');
+    function closeSidebar(){ body.classList.remove('sidebar-open'); sidebar.classList.remove('open'); }
+    function openSidebar(){ body.classList.add('sidebar-open'); sidebar.classList.add('open'); }
+    openBtn.addEventListener('click', openSidebar);
+    closeBtns.forEach(b => b && b.addEventListener('click', closeSidebar));
+    backdrop.addEventListener('click', closeSidebar);
+
+    /* ========== Currency helpers ========== */
+    const fmtUSD = (n)=> new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(+n||0);
+
+    /* ========== Editable balance + utilization math (NOT from CSV) ========== */
+    const limitEl = document.getElementById('ccLimit');
+    const leftEl  = document.getElementById('ccLeft');
+    const availEl = document.getElementById('ccAvailCredit');
+    const orange  = document.getElementById('utilOrange');
+    const blue    = document.getElementById('utilBlue');
+    const balanceInput = document.getElementById('balanceInput');
+
+    const CREDIT_LIMIT = Number(document.body.dataset.limit || 8900);
+    limitEl.textContent = fmtUSD(CREDIT_LIMIT);
+
+    function applyBalance(val){
+      const bal = Math.max(0, Number(val)||0);
+      balanceInput.value = bal.toFixed(2);
+
+      // available and left are the same concept here
+      const left = Math.max(0, CREDIT_LIMIT - bal);
+      availEl.textContent = fmtUSD(left);
+      leftEl.textContent  = fmtUSD(left);
+
+      // utilization bar: orange is used %, blue is left %
+      const usedPct = Math.min(100, (bal / CREDIT_LIMIT) * 100);
+      orange.style.width = Math.min(33, usedPct) + '%';  // first 1/3 orange (like Discover)
+      blue.style.width   = Math.max(0, usedPct - 33) + '%';
+    }
+
+    // initialize from data-* or query ?balance=
+    function getInitialBalance(){
+      const urlBal = new URLSearchParams(location.search).get('balance');
+      if(urlBal) return Number(urlBal);
+      return Number(document.body.dataset.initialBalance || 0);
+    }
+    applyBalance(getInitialBalance());
+    balanceInput.addEventListener('change', (e)=> applyBalance(e.target.value));
+    balanceInput.addEventListener('keydown', (e)=> { if(e.key==='Enter'){ e.target.blur(); }});
+
+    /* ========== Harmonize Spending Trend chart styling ========== */
+    // If activity.js creates window.trendChart, restyle it to match the other pages.
+    function harmonizeTrendChart(){
+      if(!window.trendChart) return;
+      const ch = window.trendChart;
+
+      // Common look: smooth line, no points, thin grid, y-axis with $ ticks, subtle fill
+      ch.options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { intersect:false, mode:'index' },
+        plugins: {
+          legend: { display:false },
+          tooltip: {
+            callbacks: { label: (ctx)=> ' ' + fmtUSD(ctx.parsed.y) }
+          }
+        },
+        elements: {
+          line: { tension: 0.35, borderWidth: 2 },
+          point:{ radius: 0, hitRadius: 6 }
+        },
+        scales: {
+          x: { grid: { display:false } },
+          y: { grid: { color: 'rgba(13,33,62,0.08)' },
+               ticks: { callback: (v)=> '$' + v } }
+        }
+      };
+
+      // If the dataset exists, add the soft area fill to match the clone
+      if(ch.data && ch.data.datasets && ch.data.datasets[0]){
+        ch.data.datasets[0].fill = { target: 'origin', above: 'rgba(13,33,62,.06)' };
+      }
+      ch.update();
+    }
+
+    // Try a few times (in case activity.js builds it async after CSV load)
+    let tries = 0;
+    const t = setInterval(()=>{ tries++; harmonizeTrendChart(); if(window.trendChart || tries>15){ clearInterval(t);} }, 120);
+
+    /* ========== CSV import button (delegates to activity.js) ========== */
+    const importBtn = document.getElementById('importBtn');
+    const csvInput  = document.getElementById('csvFile');
+    importBtn.onclick = ()=> csvInput.click();
+    csvInput.onchange = (e)=> window.loadCreditCSVFromFile && window.loadCreditCSVFromFile(e.target.files[0]);
+
+    // Auto-load CSV from repo (activity.js reads CREDIT_CSV_PATH)
+    window.loadCreditCSVFromPath && window.loadCreditCSVFromPath();
+
+  </script>
+</body>
+</html>
