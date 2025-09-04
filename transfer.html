@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Discover — Transfer Funds</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="accent-line"></div>
+    <div class="topbar-inner">
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="brand"><strong>DISCOVER</strong><span class="dot"></span></div>
+      <a class="logout" href="#">Log Out</a>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Menu</h3>
+      <button class="btn secondary" id="closeSidebar">Close ✕</button>
+    </div>
+
+    <div class="section-title">Activity</div>
+    <a href="credit-activity.html">Credit Card — Activity</a>
+    <a href="debit-activity.html">Cashback Debit — Activity</a>
+    <a href="savings-activity.html">Online Savings — Activity</a>
+
+    <div class="section-title">Tools</div>
+    <a href="fico.html">FICO® Credit Scorecard</a>
+    <a href="#">Payments</a>
+    <a href="#">Rewards</a>
+    <a href="#">Card Services</a>
+    <a href="#">Security</a>
+    <a href="#">Search</a>
+    <a href="#">Help</a>
+    <a href="#">Profile</a>
+  </aside>
+
+  <main class="container">
+    <h1 class="hero-greet">Transfer Funds</h1>
+    <form id="transferForm" class="transfer-form">
+      <label for="from">From account</label>
+      <select id="from" class="input">
+        <option value="debit">Cashback Debit (5195)</option>
+        <option value="savings">Online Savings (1067)</option>
+      </select>
+
+      <label>To account</label>
+      <div class="input readonly">Wells Fargo Checking (•••• 1234)</div>
+
+      <label for="amount">Amount</label>
+      <input id="amount" class="input" type="number" min="0" step="0.01" placeholder="0.00"/>
+
+      <button type="submit" class="btn primary">Confirm Transfer</button>
+    </form>
+    <div id="transferMessage" class="error-msg" role="alert"></div>
+
+    <div class="footer-note">Demo clone for personal use — no affiliation.</div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    const form = document.getElementById('transferForm');
+    const msg = document.getElementById('transferMessage');
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      if (msg) {
+        msg.textContent = 'Transfers are unavailable at the moment. Please try again later.';
+      }
+    });
+  </script>
+
+  <!-- === Footer === -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-grid">
+      <!-- Col 1 -->
+      <section class="footer-col">
+        <h4>Credit Card Quick Links</h4>
+        <ul>
+          <li><a href="#">All Credit Cards</a></li>
+          <li><a href="#">See if you're prequalified</a></li>
+          <li><a href="#">Respond to Mail Offer</a></li>
+          <li><a href="#">Check Application Status</a></li>
+          <li><a href="#">Cardmember Agreement</a></li>
+          <li><a href="#">Credit Card Benefits</a></li>
+          <li><a href="#">ATM Locator</a></li>
+        </ul>
+      </section>
+
+      <!-- Col 2 -->
+      <section class="footer-col">
+        <h4>Credit Card Categories</h4>
+        <ul>
+          <li><a href="#">Student Credit Cards</a></li>
+          <li><a href="#">Cash Back Credit Cards</a></li>
+          <li><a href="#">Travel Credit Cards</a></li>
+          <li><a href="#">Secured Credit Cards</a></li>
+          <li><a href="#">No Annual Fee Credit Cards</a></li>
+          <li><a href="#">Balance Transfer Credit Cards</a></li>
+          <li><a href="#">Low Interest Credit Cards</a></li>
+          <li><a href="#">Rewards Credit Cards</a></li>
+        </ul>
+      </section>
+
+      <!-- Social / App -->
+      <section class="footer-col footer-social">
+        <div class="social-list" aria-label="Social links">
+          <!-- Simple inline SVG icons so it works on GitHub Pages with no assets -->
+          <a class="social" href="#" aria-label="X / Twitter" title="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3z" fill="#0b1e3a"/><path d="M7 17l10-10M17 17L7 7" stroke="#fff" stroke-width="2" /></svg>
+          </a>
+          <a class="social" href="#" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#1877F2"/><path d="M14 8h2V5h-2c-2 0-3 1.2-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14V8c0-.6.4-1 1-1Z" fill="#fff"/></svg>
+          </a>
+          <a class="social" href="#" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#E1306C"/><circle cx="12" cy="12" r="5.5" fill="#fff"/><circle cx="18" cy="6" r="1.5" fill="#fff"/></svg>
+          </a>
+          <a class="social" href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0A66C2"/><rect x="5" y="9" width="3" height="10" fill="#fff"/><rect x="5" y="5" width="3" height="3" fill="#fff"/><path d="M11 9h3v1.7c.5-1 1.5-1.7 3-1.7 2 0 3 1.2 3 3.7V19h-3v-5c0-1.2-.4-2-1.5-2S14 12 14 13.8V19h-3V9Z" fill="#fff"/></svg>
+          </a>
+        </div>
+
+        <a class="app-badge" href="#" aria-label="Discover Mobile App">
+          <div class="badge-left">
+            <span class="dot"></span>
+          </div>
+          <div class="badge-right">
+            <strong>DISCOVER</strong><br/><span>MOBILE<br/>APP</span>
+          </div>
+        </a>
+      </section>
+
+      <!-- Row 2 -->
+      <section class="footer-col">
+        <h4>Rewards</h4>
+        <ul>
+          <li><a href="#">Rewards Credit Cards</a></li>
+          <li><a href="#">Cash Back Rewards</a></li>
+          <li><a href="#">5% <em>Cashback Bonus</em></a></li>
+          <li><a href="#">Redeem <em>Cashback Bonus</em></a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h4>More Discover Products</h4>
+        <ul>
+          <li><a href="#">Banking</a></li>
+          <li><a href="#">Home Equity Loans</a></li>
+          <li><a href="#">Mortgage Refinance</a></li>
+          <li><a href="#">Personal Loans</a></li>
+          <li><a href="#">Debt Consolidation</a></li>
+          <li><a href="#">Identity Theft Protection</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">Your California Privacy Choices</a></li>
+          <li><a href="#">AdChoices</a></li>
+          <li><a href="#">Discover® Scholarship Sweepstakes</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Discover</a></li>
+          <li><a href="#">Corporate Impact</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Accept Discover</a></li>
+          <li><a href="#">Inclusion and Belonging</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-logos">
+      <span class="badge eh-lender" aria-label="Equal Housing Lender">
+        <svg viewBox="0 0 40 24" aria-hidden="true"><path d="M4 18h32v4H4zM8 12h24v4H8zM12 6h16v4H12zM16 2h8v4h-8z" fill="#0b1e3a"/></svg>
+        <span>Equal Housing Lender</span>
+      </span>
+      <span class="badge bbb" aria-label="BBB Accredited Business">
+        <svg viewBox="0 0 40 24" aria-hidden="true"><rect width="40" height="24" rx="4" fill="#1f2a44"/><circle cx="20" cy="10" r="4" fill="#fff"/><rect x="16" y="15" width="8" height="5" fill="#fff"/></svg>
+        <span>Accredited Business</span>
+      </span>
+      <span class="badge fdic" aria-label="Member FDIC">
+        <svg viewBox="0 0 60 24" aria-hidden="true"><text x="2" y="17" font-size="14" font-family="system-ui, -apple-system, Segoe UI, Roboto" fill="#0b1e3a">FDIC</text></svg>
+        <span>Member FDIC</span>
+      </span>
+    </div>
+
+    <p class="copyright">
+      © <span id="year"></span> Discover (demo clone for personal use — no affiliation).
+    </p>
+  </div>
+</footer>
+<!-- === /Footer === -->
+</body>
+</html>
