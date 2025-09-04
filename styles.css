@@ -118,3 +118,8 @@
   /* amounts color for table (fallback ids some pages use) */
   #activity-table td.positive{color:green;font-weight:bold}
   #activity-table td.negative{color:red}
+/* ===== Transfer form ===== */
+.transfer-form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin-top:16px}
+.transfer-form label{font-weight:700}
+.transfer-form .readonly{background:#eef3fa}
+.error-msg{margin-top:16px;color:#c0392b;font-weight:700}
