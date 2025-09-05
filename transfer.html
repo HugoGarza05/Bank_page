@@ -45,10 +45,19 @@
       <select id="from" class="input">
         <option value="debit">Cashback Debit (5195)</option>
         <option value="savings">Online Savings (1067)</option>
+        <option value="wells">Wells Fargo Checking (•••• 4774)</option>
+        <option value="chime">Chime Checking (•••• 2874)</option>
+        <option value="discover">Discover Debit (•••• 4920)</option>
       </select>
 
-      <label>To account</label>
-      <div class="input readonly">Wells Fargo Checking (•••• 1234)</div>
+      <label for="to">To account</label>
+      <select id="to" class="input">
+        <option value="debit">Cashback Debit (5195)</option>
+        <option value="savings">Online Savings (1067)</option>
+        <option value="wells">Wells Fargo Checking (•••• 4774)</option>
+        <option value="chime">Chime Checking (•••• 2874)</option>
+        <option value="discover">Discover Debit (•••• 4920)</option>
+      </select>
 
       <label for="amount">Amount</label>
       <input id="amount" class="input" type="number" min="0" step="0.01" placeholder="0.00"/>
